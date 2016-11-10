@@ -14,7 +14,7 @@ module.exports = (robot) ->
     payload = {}
     payload.name = data.name
     payload.timestamp = data.message.id
-    payload.channel  = data.message.room
+    payload.channel  = data.message.rawMessage.channel
     payload.token = process.env.HUBOT_SLACK_TOKEN
 
     robot.http(options.endpoint + "?token=" + payload.token + "&name=" + payload.name + "&timestamp=" + payload.timestamp + "&channel=" + payload.channel)
